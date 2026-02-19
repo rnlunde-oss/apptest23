@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Your Way Back — A Devotional Series by Ryan Lunde</title>
+    <meta name="description" content="A devotional series for the weary, the struggling, and the returning. Written for Christians who need to hear that God hasn't given up on them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --gold: #C8A45E;
+            --gold-light: #E8D5A3;
+            --navy: #1B2A4A;
+            --navy-light: #2D4066;
+            --cream: #FAF6F0;
+            --cream-dark: #F0E9DD;
+            --text-dark: #2C2C2C;
+            --text-mid: #5A5A5A;
+            --text-light: #8A8A8A;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+            --radius: 12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.3;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(27, 42, 74, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--cream);
+            transition: all 0.3s;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 50%, #3D5580 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(200, 164, 94, 0.1) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            padding: 8px 20px;
+            border: 1px solid rgba(200, 164, 94, 0.3);
+            border-radius: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(250, 246, 240, 0.75);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 36px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(200, 164, 94, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            border: 1.5px solid rgba(250, 246, 240, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(250,246,240,0.4);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(200,164,94,0.5), transparent);
+        }
+
+        /* ========== SECTION STYLES ========== */
+        section { padding: 100px 0; }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* ========== ABOUT THE BOOK ========== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .book-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-cover {
+            width: 280px;
+            height: 420px;
+            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 4px 16px 16px 4px;
+            box-shadow: var(--shadow-lg), -6px 0 0 rgba(27,42,74,0.3), -10px 0 0 rgba(27,42,74,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+
+        .book-cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .book-cover-subtitle {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .book-cover-line {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .book-cover-author {
+            font-size: 0.85rem;
+            color: rgba(250,246,240,0.7);
+            letter-spacing: 1px;
+        }
+
+        .about-content .section-subtitle {
+            margin-bottom: 28px;
+        }
+
+        .about-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-mid);
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: rgba(200, 164, 94, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        /* ========== WHO THIS IS FOR ========== */
+        .audience { text-align: center; }
+
+        .audience-header {
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .audience-card {
+            background: var(--white);
+            padding: 48px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(200, 164, 94, 0.2);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, rgba(200,164,94,0.15), rgba(200,164,94,0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+
+        .audience-card p {
+            font-size: 0.93rem;
+            color: var(--text-mid);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .audience-card.coming-soon {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .audience-card.coming-soon .card-icon,
+        .audience-card.coming-soon p {
+            opacity: 0.2;
+        }
+
+        .audience-card.coming-soon h3 {
+            opacity: 0.45;
+        }
+
+        .audience-card.coming-soon:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .coming-soon-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 48px;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .coming-soon-tag {
+            position: absolute;
+            top: 25%;
+            transform: translateY(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4A4A4A;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-coming-soon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+            border: 1.5px solid var(--gold);
+            background: var(--gold);
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+
+        .btn-coming-soon:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(200, 164, 94, 0.35);
+        }
+
+        /* ========== SCRIPTURE BANNER ========== */
+        .scripture-banner {
+            background: var(--navy);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scripture-banner::before {
+            content: '\201C';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 16rem;
+            color: rgba(200, 164, 94, 0.06);
+            line-height: 1;
+        }
+
+        .scripture-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--cream);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scripture-ref {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ========== SAMPLE DEVOTION ========== */
+        .sample { background: var(--white); }
+
+        .sample-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .sample-content {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--cream);
+            border-radius: var(--radius);
+            padding: 48px;
+            border-left: 4px solid var(--gold);
+            position: relative;
+        }
+
+        .sample-day {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .sample-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .sample-verse {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-mid);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .sample-body {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .sample-prayer {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--navy);
+            font-size: 1rem;
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .sample-prayer strong {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .sample-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials { text-align: center; }
+
+        .testimonials-header {
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 0.93rem;
+            color: var(--text-mid);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ========== ABOUT AUTHOR ========== */
+        .author { background: var(--white); }
+
+        .author-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .author-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .author-photo::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid rgba(200, 164, 94, 0.3);
+        }
+
+        .author-initials {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .author-content .section-subtitle {
+            margin-bottom: 20px;
+        }
+
+        .author-bio {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        /* ========== EMAIL SIGNUP ========== */
+        .signup {
+            background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(200,164,94,0.08) 0%, transparent 60%);
+        }
+
+        .signup-content {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .signup .section-label { color: var(--gold-light); }
+
+        .signup-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .signup-sub {
+            color: rgba(250,246,240,0.7);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 36px;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .signup-form input {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(250,246,240,0.15);
+            background: rgba(255,255,255,0.08);
+            color: var(--cream);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .signup-form input::placeholder { color: rgba(250,246,240,0.4); }
+        .signup-form input:focus { border-color: var(--gold); }
+
+        .signup-form .btn-primary { white-space: nowrap; }
+
+        .signup-note {
+            font-size: 0.78rem;
+            color: rgba(250,246,240,0.4);
+            margin-top: 16px;
+        }
+
+        /* ========== FINAL CTA ========== */
+        .final-cta {
+            text-align: center;
+            background: var(--cream);
+            padding: 80px 0;
+        }
+
+        .final-cta .section-title {
+            margin-bottom: 16px;
+        }
+
+        .final-cta .section-subtitle {
+            margin: 0 auto 32px;
+            text-align: center;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--navy);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(250,246,240,0.5);
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(250,246,240,0.3);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .book-mockup { margin-bottom: 20px; }
+            .audience-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .author-grid { grid-template-columns: 1fr; text-align: center; }
+            .author-photo { margin: 0 auto; }
+            .about-features { align-items: center; }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 70px 0; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                padding: 24px;
+                gap: 20px;
+                border-top: 1px solid rgba(250,246,240,0.1);
+            }
+            .nav-toggle { display: flex; }
+            .hero { padding: 100px 20px 80px; min-height: 90vh; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 280px; justify-content: center; }
+            .sample-content { padding: 32px 24px; }
+            .signup-form { flex-direction: column; }
+            .signup-form .btn-primary { width: 100%; justify-content: center; }
+            .book-cover { width: 220px; height: 330px; padding: 30px 20px; }
+            .book-cover-title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">Ryan Lunde</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">The Book</a></li>
+                <li><a href="#audience">Who It's For</a></li>
+                <li><a href="#sample">Sample</a></li>
+                <li><a href="#author">About</a></li>
+                <li><a href="#ORDER_LINK" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;">Get Your Copy</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">A Devotional Series</span>
+            <!-- TODO: Replace with your actual book/series title -->
+            <h1>You're Not Too Far Gone.<br>You're Not <em>Too Broken.</em></h1>
+            <p class="hero-sub">
+                A devotional for the burned out, the struggling, and the ones
+                finding their way back. 40 days of truth, grace, and the God
+                who never stopped pursuing you.
+            </p>
+            <div class="hero-buttons">
+                <!-- TODO: Replace #ORDER_LINK with your Amazon KDP book link -->
+                <a href="#ORDER_LINK" class="btn btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                    Order on Amazon
+                </a>
+                <a href="#sample" class="btn btn-secondary">Read a Sample</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT THE BOOK ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="book-mockup fade-in">
+                    <div class="book-cover">
+                        <div class="book-cover-subtitle">A Devotional</div>
+                        <!-- TODO: Replace with your actual book title -->
+                        <div class="book-cover-title">Your Book<br>Title Here</div>
+                        <div class="book-cover-line"></div>
+                        <div class="book-cover-author">Ryan Lunde</div>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <div class="section-label">About the Book</div>
+                    <h2 class="section-title">40 Days Back to the<br>Heart of God</h2>
+                    <p class="section-subtitle">
+                        <!-- TODO: Customize this description -->
+                        This isn't a devotional that pretends everything is fine. It's for
+                        the Christian who is barely hanging on, the one who walked away, or
+                        the one trapped in a cycle they can't seem to break. Each day brings
+                        Scripture, honest reflection, and a prayer to carry you forward.
+                    </p>
+                    <ul class="about-features">
+                        <li>
+                            <span class="feature-icon">&check;</span>
+                            40 daily devotions rooted in Scripture
+                        </li>
+                        <li>
+                            <span class="feature-icon">&check;</span>
+                            Guided prayers and reflection questions
+                        </li>
+                        <li>
+                            <span class="feature-icon">&check;</span>
+                            Written with raw honesty &mdash; no religious fluff
+                        </li>
+                        <li>
+                            <span class="feature-icon">&check;</span>
+                            Perfect for personal use or small groups
+                        </li>
+                    </ul>
+                    <!-- TODO: Replace #ORDER_LINK with your Amazon KDP link -->
+                    <a href="#ORDER_LINK" class="btn btn-primary">Get Your Copy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHO THIS IS FOR ===== -->
+    <section class="audience" id="audience">
+        <div class="container">
+            <div class="audience-header fade-in">
+                <div class="section-label">Who This Is For</div>
+                <h2 class="section-title">Written for the Ones<br>the Church Often Forgets</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">
+                    If you've ever felt too tired, too broken, or too far gone for God &mdash;
+                    this was written with you in mind.
+                </p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card fade-in">
+                    <div class="card-icon">
+                        <svg width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22c-4 0-7-2.7-7-7 0-3.5 3-6.5 4-8 .4-.6 1.2-.3 1.2.4 0 1.5 1.5 2.6 2.5 1.5C14 7.6 13 5.5 13 3.5c0-.6.7-.9 1.1-.5C17.5 6.5 19 9.5 19 15c0 4.3-3 7-7 7z"/><path d="M12 22c-1.7 0-3-1.3-3-3.5 0-1.5 1.2-3 2-3.5.3-.2.7 0 .7.3 0 .7.8 1.2 1.3.7.5-.5.5-1.5 0-2.5-.2-.3.1-.7.5-.5 1.5.8 2.5 2.5 2.5 4.5 0 2.7-1.7 4.5-4 4.5z"/></svg>
+                    </div>
+                    <h3>The Burned Out</h3>
+                    <p>
+                        You've served, given, and poured out until there's nothing left.
+                        Ministry used to fill you up &mdash; now it drains you dry.
+                        This devotional meets you in the exhaustion.
+                    </p>
+                </div>
+                <div class="audience-card coming-soon fade-in">
+                    <div class="card-icon">
+                        <svg width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>The Struggling</h3>
+                    <p>
+                        Addiction, shame, and the weight of a secret battle.
+                        You love God but you're caught in a cycle that feels
+                        impossible to break. You're not alone in this fight.
+                    </p>
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-tag">Coming Soon</span>
+                        <a href="#signup" class="btn-coming-soon">Join the Mail List</a>
+                    </div>
+                </div>
+                <div class="audience-card coming-soon fade-in">
+                    <div class="card-icon">
+                        <svg width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <h3>The Returning</h3>
+                    <p>
+                        You walked away from God &mdash; or maybe you just quietly drifted.
+                        Now something is pulling you back, but you don't know
+                        where to start. Start here.
+                    </p>
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-tag">Coming Soon</span>
+                        <a href="#signup" class="btn-coming-soon">Join the Mail List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SCRIPTURE BANNER ===== -->
+    <section class="scripture-banner">
+        <div class="container fade-in">
+            <p class="scripture-text">
+                "Come to me, all you who are weary and burdened,
+                and I will give you rest."
+            </p>
+            <span class="scripture-ref">Matthew 11:28 NIV</span>
+        </div>
+    </section>
+
+    <!-- ===== SAMPLE DEVOTION ===== -->
+    <section class="sample" id="sample">
+        <div class="container">
+            <div class="sample-header fade-in">
+                <div class="section-label">Free Sample</div>
+                <h2 class="section-title">A Glimpse Inside</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">
+                    Here's what a daily devotion looks like. Honest, grounded, and always pointing back to God.
+                </p>
+            </div>
+            <div class="sample-content fade-in">
+                <!-- TODO: Replace with an actual excerpt from your devotional -->
+                <div class="sample-day">Day 1</div>
+                <h3 class="sample-title">When You're Running on Empty</h3>
+                <p class="sample-verse">
+                    "He restores my soul. He leads me in paths of righteousness
+                    for his name's sake." &mdash; Psalm 23:3
+                </p>
+                <div class="sample-body">
+                    <p>
+                        You didn't plan to end up here. Nobody signs up for burnout, for
+                        the slow fade where prayer feels hollow and Sunday mornings feel
+                        like performance. But here you are &mdash; and God is not surprised.
+                    </p>
+                    <br>
+                    <p>
+                        The Shepherd in Psalm 23 doesn't restore the soul of someone
+                        who has it all together. He restores the one who wandered,
+                        the one who's limping, the one who stopped believing the green
+                        pastures were ever meant for them.
+                    </p>
+                    <br>
+                    <p>
+                        Today, you don't need to perform. You don't need a plan.
+                        You just need to be honest: <em>"God, I'm empty. Fill me again."</em>
+                    </p>
+                </div>
+                <div class="sample-prayer">
+                    <strong>Today's Prayer</strong>
+                    Lord, I've been running on fumes and calling it faith. I'm tired of
+                    pretending. Meet me in this emptiness. Restore what burnout has taken.
+                    Remind me that Your mercies are new &mdash; even for someone like me. Amen.
+                </div>
+            </div>
+            <div class="sample-cta fade-in">
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 16px;">
+                    39 more days of truth and grace are waiting.
+                </p>
+                <!-- TODO: Replace #ORDER_LINK with your Amazon KDP link -->
+                <a href="#ORDER_LINK" class="btn btn-primary">Get the Full Devotional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header fade-in">
+                <div class="section-label">Reader Reviews</div>
+                <h2 class="section-title">What Readers Are Saying</h2>
+            </div>
+            <!-- TODO: Replace with real testimonials/reviews -->
+            <div class="testimonials-grid fade-in">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "This devotional put words to feelings I've carried for years.
+                        I finally felt seen &mdash; not judged. Every page felt like it
+                        was written just for me."
+                    </p>
+                    <div class="testimonial-author">&mdash; Amazon Reader</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "I almost didn't buy it. I'm glad I did. Day 7 broke me
+                        in the best way. This is what the church needs more of &mdash;
+                        honesty and grace together."
+                    </p>
+                    <div class="testimonial-author">&mdash; Amazon Reader</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "Bought this for my small group and it sparked the most
+                        real conversations we've ever had. Raw, Biblical, and
+                        deeply compassionate."
+                    </p>
+                    <div class="testimonial-author">&mdash; Amazon Reader</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT THE AUTHOR ===== -->
+    <section class="author" id="author">
+        <div class="container">
+            <div class="author-grid fade-in">
+                <div class="author-photo">
+                    <img src="author-photo.jpg" alt="Ryan Lunde">
+                </div>
+                <div class="author-content">
+                    <div class="section-label">About the Author</div>
+                    <h2 class="section-title">Ryan Lunde</h2>
+                    <!-- TODO: Customize your bio -->
+                    <p class="author-bio">
+                        Ryan Lunde writes for the Christian who feels like they're
+                        on the outside looking in. Having walked through seasons of
+                        burnout, doubt, and rediscovery, Ryan brings a voice that is
+                        equal parts honest and hopeful. His devotional work is rooted
+                        in the belief that God's grace reaches further than our failures &mdash;
+                        and that no one is beyond the reach of restoration.
+                    </p>
+                    <p class="author-bio">
+                        When he's not writing, Ryan is passionate about all of the
+                        surprising, redemptive work that God is doing in the lives
+                        of the people around him.
+                    </p>
+                    <!-- TODO: Add your social/ministry links -->
+                    <a href="#ORDER_LINK" class="btn btn-primary">Read His Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EMAIL SIGNUP ===== -->
+    <section class="signup" id="signup">
+        <div class="container">
+            <div class="signup-content fade-in">
+                <div class="section-label">Stay Connected</div>
+                <h2 class="signup-title">Get Free Devotions<br>in Your Inbox</h2>
+                <p class="signup-sub">
+                    Join the community. Receive weekly encouragement, early access
+                    to new releases, and exclusive content straight to your inbox.
+                </p>
+                <!-- TODO: Connect this form to your email service (Mailchimp, ConvertKit, etc.) -->
+                <form class="signup-form" onsubmit="handleSignup(event)">
+                    <input type="email" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="signup-note">No spam. Unsubscribe anytime. Just grace in your inbox.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta">
+        <div class="container fade-in">
+            <h2 class="section-title">Start Your 40-Day Journey Today</h2>
+            <p class="section-subtitle">
+                Wherever you are &mdash; burned out, struggling, or finding your way back &mdash;
+                this devotional meets you there.
+            </p>
+            <!-- TODO: Replace #ORDER_LINK with your Amazon KDP link -->
+            <a href="#ORDER_LINK" class="btn btn-primary" style="font-size: 1.05rem; padding: 18px 44px;">
+                Order on Amazon
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">Ryan Lunde</div>
+                <ul class="footer-links">
+                    <li><a href="#about">The Book</a></li>
+                    <li><a href="#audience">Who It's For</a></li>
+                    <li><a href="#author">About</a></li>
+                    <!-- TODO: Replace #ORDER_LINK with your Amazon KDP link -->
+                    <li><a href="#ORDER_LINK">Amazon</a></li>
+                </ul>
+                <p class="footer-copy">&copy; 2026 Ryan Lunde. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll-based fade-in animations
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeEls.forEach(el => observer.observe(el));
+
+        // Email signup handler (placeholder)
+        function handleSignup(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            // TODO: Replace with your actual email service integration
+            alert('Thank you for subscribing! (Connect this form to your email service like Mailchimp or ConvertKit)');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>

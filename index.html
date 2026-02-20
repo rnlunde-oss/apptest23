@@ -59,16 +59,16 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --gold: #C8A45E;
-            --gold-light: #E8D5A3;
-            --navy: #1B2A4A;
-            --navy-light: #2D4066;
-            --cream: #FAF6F0;
-            --cream-dark: #F0E9DD;
-            --text-dark: #2C2C2C;
-            --text-mid: #5A5A5A;
-            --text-light: #8A8A8A;
-            --white: #FFFFFF;
+            --gold: #E8863A;
+            --gold-light: #F0A860;
+            --navy: #0D0D0D;
+            --navy-light: #1A1A1A;
+            --cream: #141414;
+            --cream-dark: #1E1E1E;
+            --text-dark: #F0ECE6;
+            --text-mid: #A0978C;
+            --text-light: #6B6360;
+            --white: #1A1A1A;
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
             --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
@@ -106,7 +106,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(27, 42, 74, 0.95);
+            background: rgba(13, 13, 13, 0.95);
             backdrop-filter: blur(10px);
             padding: 16px 0;
             transition: box-shadow 0.3s ease;
@@ -135,7 +135,7 @@
         }
 
         .nav-links a {
-            color: var(--cream);
+            color: #F0ECE6;
             font-size: 0.9rem;
             font-weight: 400;
             letter-spacing: 0.3px;
@@ -157,7 +157,7 @@
         .nav-toggle span {
             width: 24px;
             height: 2px;
-            background: var(--cream);
+            background: #F0ECE6;
             transition: all 0.3s;
         }
 
@@ -169,7 +169,7 @@
             justify-content: center;
             text-align: center;
             padding: 120px 24px 80px;
-            background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 50%, #3D5580 100%);
+            background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 50%, #1A1510 100%);
             position: relative;
             overflow: hidden;
         }
@@ -178,7 +178,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 50% 30%, rgba(200, 164, 94, 0.1) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 50% 30%, rgba(232, 134, 58, 0.12) 0%, transparent 60%);
         }
 
         .hero-content {
@@ -196,13 +196,13 @@
             color: var(--gold);
             margin-bottom: 24px;
             padding: 8px 20px;
-            border: 1px solid rgba(200, 164, 94, 0.3);
+            border: 1px solid rgba(232, 134, 58, 0.3);
             border-radius: 40px;
         }
 
         .hero h1 {
             font-size: clamp(2.4rem, 5.5vw, 4rem);
-            color: var(--white);
+            color: #FFFFFF;
             margin-bottom: 24px;
             font-weight: 700;
         }
@@ -253,13 +253,13 @@
         .btn-primary:hover {
             background: var(--gold-light);
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(200, 164, 94, 0.4);
+            box-shadow: 0 6px 24px rgba(232, 134, 58, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--cream);
-            border: 1.5px solid rgba(250, 246, 240, 0.3);
+            color: #F0ECE6;
+            border: 1.5px solid rgba(240, 236, 230, 0.3);
         }
 
         .btn-secondary:hover {
@@ -304,7 +304,7 @@
         .scroll-line {
             width: 1px;
             height: 40px;
-            background: linear-gradient(to bottom, rgba(200,164,94,0.5), transparent);
+            background: linear-gradient(to bottom, rgba(232,134,58,0.5), transparent);
         }
 
         /* ========== SECTION STYLES ========== */
@@ -321,7 +321,7 @@
 
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.6rem);
-            color: var(--navy);
+            color: var(--text-dark);
             margin-bottom: 20px;
         }
 
@@ -350,59 +350,10 @@
             justify-content: center;
         }
 
-        .book-cover {
+        .book-cover-img {
             width: 280px;
-            height: 420px;
-            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
             border-radius: 4px 16px 16px 4px;
-            box-shadow: var(--shadow-lg), -6px 0 0 rgba(27,42,74,0.3), -10px 0 0 rgba(27,42,74,0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-cover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold);
-        }
-
-        .book-cover-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .book-cover-subtitle {
-            font-size: 0.75rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .book-cover-line {
-            width: 40px;
-            height: 1px;
-            background: var(--gold);
-            margin-bottom: 24px;
-        }
-
-        .book-cover-author {
-            font-size: 0.85rem;
-            color: rgba(250,246,240,0.7);
-            letter-spacing: 1px;
+            box-shadow: var(--shadow-lg), -6px 0 0 rgba(0,0,0,0.3), -10px 0 0 rgba(0,0,0,0.15);
         }
 
         .about-content .section-subtitle {
@@ -429,7 +380,7 @@
             width: 24px;
             height: 24px;
             min-width: 24px;
-            background: rgba(200, 164, 94, 0.15);
+            background: rgba(232, 134, 58, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -459,20 +410,20 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
-            border: 1px solid transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .audience-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
-            border-color: rgba(200, 164, 94, 0.2);
+            border-color: rgba(232, 134, 58, 0.2);
         }
 
         .card-icon {
             width: 64px;
             height: 64px;
             margin: 0 auto 24px;
-            background: linear-gradient(135deg, rgba(200,164,94,0.15), rgba(200,164,94,0.05));
+            background: linear-gradient(135deg, rgba(232,134,58,0.15), rgba(232,134,58,0.05));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -482,7 +433,7 @@
 
         .audience-card h3 {
             font-size: 1.25rem;
-            color: var(--navy);
+            color: var(--text-dark);
             margin-bottom: 14px;
         }
 
@@ -531,7 +482,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #4A4A4A;
+            color: #D0C8C0;
             letter-spacing: 0.5px;
         }
 
@@ -556,7 +507,7 @@
         .btn-coming-soon:hover {
             background: var(--gold-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(200, 164, 94, 0.35);
+            box-shadow: 0 4px 16px rgba(232, 134, 58, 0.35);
         }
 
         /* ========== SCRIPTURE BANNER ========== */
@@ -576,14 +527,14 @@
             transform: translateX(-50%);
             font-family: 'Playfair Display', serif;
             font-size: 16rem;
-            color: rgba(200, 164, 94, 0.06);
+            color: rgba(232, 134, 58, 0.06);
             line-height: 1;
         }
 
         .scripture-text {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.3rem, 3vw, 1.8rem);
-            color: var(--cream);
+            color: #F0ECE6;
             font-style: italic;
             max-width: 700px;
             margin: 0 auto 20px;
@@ -614,6 +565,9 @@
             border-radius: var(--radius);
             padding: 48px;
             border-left: 4px solid var(--gold);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             position: relative;
         }
 
@@ -628,7 +582,7 @@
 
         .sample-title {
             font-size: 1.5rem;
-            color: var(--navy);
+            color: var(--text-dark);
             margin-bottom: 8px;
         }
 
@@ -639,7 +593,7 @@
             font-size: 1rem;
             margin-bottom: 24px;
             padding-bottom: 24px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .sample-body {
@@ -652,12 +606,13 @@
         .sample-prayer {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            color: var(--navy);
+            color: var(--text-dark);
             font-size: 1rem;
             padding: 20px 24px;
             background: var(--white);
             border-radius: 8px;
             line-height: 1.7;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .sample-prayer strong {
@@ -696,6 +651,7 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .testimonial-stars {
@@ -716,7 +672,7 @@
         .testimonial-author {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--navy);
+            color: var(--text-dark);
         }
 
         /* ========== ABOUT AUTHOR ========== */
@@ -753,7 +709,7 @@
             position: absolute;
             inset: -6px;
             border-radius: 50%;
-            border: 2px solid rgba(200, 164, 94, 0.3);
+            border: 2px solid rgba(232, 134, 58, 0.3);
         }
 
         .author-initials {
@@ -786,7 +742,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 50% 100%, rgba(200,164,94,0.08) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 50% 100%, rgba(232,134,58,0.08) 0%, transparent 60%);
         }
 
         .signup-content {
@@ -800,7 +756,7 @@
 
         .signup-title {
             font-size: clamp(1.8rem, 4vw, 2.4rem);
-            color: var(--white);
+            color: #FFFFFF;
             margin-bottom: 16px;
         }
 
@@ -839,7 +795,7 @@
             border-radius: 50px !important;
             border: 1.5px solid rgba(250,246,240,0.15) !important;
             background: rgba(255,255,255,0.08) !important;
-            color: var(--cream) !important;
+            color: #F0ECE6 !important;
             font-family: 'Inter', sans-serif !important;
             font-size: 0.9rem !important;
             line-height: 1.4 !important;
@@ -869,7 +825,7 @@
         .signup-form-ck .formkit-submit:hover {
             background: var(--gold-light) !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(200, 164, 94, 0.4) !important;
+            box-shadow: 0 6px 24px rgba(232, 134, 58, 0.4) !important;
         }
 
         .signup-form-ck .formkit-submit span {
@@ -882,9 +838,9 @@
         }
 
         .signup-form-ck .formkit-alert-success {
-            background: rgba(200, 164, 94, 0.15) !important;
+            background: rgba(232, 134, 58, 0.15) !important;
             border-color: var(--gold) !important;
-            color: var(--cream) !important;
+            color: #F0ECE6 !important;
             border-radius: 12px !important;
         }
 
@@ -1018,8 +974,7 @@
             .sample-content { padding: 32px 24px; }
             .signup-form { flex-direction: column; }
             .signup-form .btn-primary { width: 100%; justify-content: center; }
-            .book-cover { width: 220px; height: 330px; padding: 30px 20px; }
-            .book-cover-title { font-size: 1.2rem; }
+            .book-cover-img { width: 220px; }
         }
     </style>
 </head>
@@ -1090,12 +1045,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="book-mockup fade-in">
-                    <div class="book-cover">
-                        <div class="book-cover-title">Rekindled</div>
-                        <div class="book-cover-subtitle">A 40-Day Devotional<br>for the Burned Out</div>
-                        <div class="book-cover-line"></div>
-                        <div class="book-cover-author">Ryan Lunde</div>
-                    </div>
+                    <img src="book-cover.png" alt="Rekindled: A 40-Day Devotional for the Burned Out by Ryan Lunde" class="book-cover-img">
                 </div>
                 <div class="about-content fade-in">
                     <div class="section-label">About the Book</div>
@@ -1154,6 +1104,8 @@
                         Ministry used to fill you up &mdash; now it drains you dry.
                         This devotional meets you in the exhaustion.
                     </p>
+                    <!-- TODO: Replace #ORDER_LINK with your Amazon KDP link -->
+                    <a href="#ORDER_LINK" class="btn btn-primary" style="margin-top: 20px; padding: 12px 28px; font-size: 0.85rem;">Buy Now</a>
                 </div>
                 <div class="audience-card coming-soon fade-in">
                     <div class="card-icon">
@@ -1273,10 +1225,10 @@
                     <strong>Prayerful Response</strong>
                     <span style="display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.9rem; color: var(--text-mid); line-height: 1.8;">
                         Take the time to prayerfully work through these prompts.<br><br>
-                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--navy); font-family: 'Inter', sans-serif;">1 Minute:</strong> Re-read verses 36&ndash;39 slowly.<br>
-                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--navy); font-family: 'Inter', sans-serif;">1 Sentence Prayer:</strong> Lord, send Your fire again.<br>
-                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--navy); font-family: 'Inter', sans-serif;">1 Honest Confession:</strong> &ldquo;I've been trying to carry this alone.&rdquo;<br>
-                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--navy); font-family: 'Inter', sans-serif;">1 Small Step (Today):</strong> Put your hand on your chest and whisper, &ldquo;Lord, I'm here.&rdquo;
+                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--text-dark); font-family: 'Inter', sans-serif;">1 Minute:</strong> Re-read verses 36&ndash;39 slowly.<br>
+                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--text-dark); font-family: 'Inter', sans-serif;">1 Sentence Prayer:</strong> Lord, send Your fire again.<br>
+                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--text-dark); font-family: 'Inter', sans-serif;">1 Honest Confession:</strong> &ldquo;I've been trying to carry this alone.&rdquo;<br>
+                        <strong style="display: inline; font-size: 0.9rem; letter-spacing: 0; text-transform: none; color: var(--text-dark); font-family: 'Inter', sans-serif;">1 Small Step (Today):</strong> Put your hand on your chest and whisper, &ldquo;Lord, I'm here.&rdquo;
                     </span>
                 </div>
             </div>

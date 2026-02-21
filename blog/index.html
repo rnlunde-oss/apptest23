@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-38LXC20TL5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-38LXC20TL5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO -->
+    <title>Blog — Ryan Lunde | Rekindled Devotional</title>
+    <meta name="description" content="Thoughts on faith, burnout, and the God who meets us in the mess. Blog posts from Ryan Lunde, author of Rekindled: A 40-Day Devotional for the Burned Out.">
+    <meta name="author" content="Ryan Lunde">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ryanlunde.com/blog/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog — Ryan Lunde">
+    <meta property="og:description" content="Thoughts on faith, burnout, and the God who meets us in the mess.">
+    <meta property="og:url" content="https://ryanlunde.com/blog/">
+    <meta property="og:site_name" content="Ryan Lunde">
+    <meta property="og:image" content="https://ryanlunde.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Ryan Lunde">
+    <meta name="twitter:description" content="Thoughts on faith, burnout, and the God who meets us in the mess.">
+    <meta name="twitter:image" content="https://ryanlunde.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        /* ========== BLOG HEADER ========== */
+        .blog-header {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: var(--navy);
+        }
+
+        .blog-header .section-label {
+            margin-bottom: 16px;
+        }
+
+        .blog-header h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        .blog-header p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 520px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ========== POST CARDS ========== */
+        .blog-listing {
+            padding: 80px 0 100px;
+            background: var(--cream);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(232, 134, 58, 0.25);
+        }
+
+        .post-card-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .post-card h2 {
+            font-size: 1.35rem;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        .post-card h2 a {
+            transition: color 0.2s;
+        }
+
+        .post-card h2 a:hover {
+            color: var(--gold);
+        }
+
+        .post-card-excerpt {
+            font-size: 0.93rem;
+            color: var(--text-mid);
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--gold);
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: var(--gold-light);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 600px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            .post-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">Ryan Lunde</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#about">The Book</a></li>
+                <li><a href="/#audience">Who It's For</a></li>
+                <li><a href="/#sample">Sample</a></li>
+                <li><a href="/#author">About</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="#ORDER_LINK" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;">Get Your Copy</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== BLOG HEADER ===== -->
+    <header class="blog-header">
+        <div class="container fade-in">
+            <div class="section-label">Blog</div>
+            <h1>Beholding the Light<br>in the Darkness</h1>
+            <p>Thoughts on faith, burnout, and the God who meets us in the mess.</p>
+        </div>
+    </header>
+
+    <!-- ===== BLOG LISTING ===== -->
+    <section class="blog-listing">
+        <div class="container">
+            <div class="posts-grid">
+
+                <article class="post-card fade-in">
+                    <div class="post-card-date">February 21, 2026</div>
+                    <h2><a href="/blog/posts/believe-again.html">Believe Again</a></h2>
+                    <p class="post-card-excerpt">
+                        Burnout can feel like your spiritual fire went out &mdash; and now you're left staring at wet wood, wondering if it will ever light again. But on Mount Carmel, the point is unmistakable: even soaked wood burns when God sends fire.
+                    </p>
+                    <a href="/blog/posts/believe-again.html" class="read-more">Read More &rarr;</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">Ryan Lunde</div>
+                <ul class="footer-links">
+                    <li><a href="/#about">The Book</a></li>
+                    <li><a href="/#audience">Who It's For</a></li>
+                    <li><a href="/#author">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="#ORDER_LINK">Amazon</a></li>
+                </ul>
+                <p class="footer-copy">&copy; 2026 Ryan Lunde. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll-based fade-in animations
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
